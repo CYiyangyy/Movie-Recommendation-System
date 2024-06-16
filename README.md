@@ -87,7 +87,7 @@ MVC 模式使后续对程序的修改和扩展简化，并且使程序某一部�
 
 ### 前端
 
-bootstrap3 css 框架 （真不熟）
+Vue2 bootstrap3 css 框架 
 
 
 

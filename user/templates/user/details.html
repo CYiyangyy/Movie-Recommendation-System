@@ -30,28 +30,28 @@
                             <p><strong>导演:</strong> {{ movie.director }}</p>
                         </div>
                     </div>
-                    <p><strong>Actor:</strong> {{ movie.leader | slice:50 }}...
-                    <p><strong>Description: </strong>{{ movie.intro | slice:240 }}...</p>
-                    <p><strong>Number of Favorites：{{ movie.collect.count }}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p><strong>主演:</strong> {{ movie.leader | slice:50 }}...
+                    <p><strong>剧情简介: </strong>{{ movie.intro | slice:240 }}...</p>
+                    <p><strong>收藏人数：{{ movie.collect.count }}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         {% if is_collect %}
-                            <a class="button" style="padding-bottom: 10px; margin-left: 10px" href="{% url 'decollect' movie.id %}">Cancel Favorites</a>
+                            <a class="button" style="padding-bottom: 10px; margin-left: 10px" href="{% url 'decollect' movie.id %}">取消收藏</a>
                         {% else %}
-                            <a class="button" style="padding-bottom: 10px; margin-left: 10px" href="{% url 'collect' movie.id %}">Add to Favorites</a>{% endif %}
+                            <a class="button" style="padding-bottom: 10px; margin-left: 10px" href="{% url 'collect' movie.id %}">添加收藏</a>{% endif %}
                         {#                        <button>收藏</button>#}
                     </p>
                     <div class="row">
                         <div class="col-md-6">
                             <p>
-                                <strong>Douban rating：{{ movie.d_rate }}</strong>&nbsp;&nbsp;&nbsp
+                                <strong>豆瓣评分：{{ movie.d_rate }}</strong>&nbsp;
                             </p>
                         </div>
                         <div class="col-md-6">
                             {% if user_rate is not None %}
-                                <h4>Please rate: {{ user_rate.mark }}</h4>
+                                <h4>添加评分: {{ user_rate.mark }}</h4>
                             {% else %}
                                 <form action="{% url 'score' movie.id %}" method="post">
                                     {% csrf_token %}
-                                    <strong class="d-inline-block" style="margin-bottom: 0; box-sizing: border-box; margin-right: 20px">Add rating
+                                    <strong class="d-inline-block" style="margin-bottom: 0; box-sizing: border-box; margin-right: 20px">评分
                                         <select name="score" class="custom-select" style="width: auto">
                                             <option>1.0</option>
                                             <option>2.0</option>
@@ -60,16 +60,16 @@
                                             <option>5.0</option>
                                         </select>
                                     </strong>
-                                    <button type="submit" class="btn-success">Submit</button>
+                                    <button type="submit" class="btn-success">提交</button>
                                 </form>
                             {% endif %}
                         </div>
                     </div>
-                    <a class="download" target="_blank" href="{{ movie.douban_link }}">Go to watch (Douban Link)</a>
+                    <a class="download" target="_blank" href="{{ movie.douban_link }}">跳转豆瓣观看</a>
                 </div>
                 <div class="clearfix"></div>
                 <div class="related-articals">
-                    <h2>Item-based recommendations</h2>
+                    <h2>喜欢这部电影的人也喜欢 · · · · · ·</h2>
                     <!-- related-albums -->
                     <div class="related-albums">
                         {% verbatim item_app %}
@@ -109,11 +109,11 @@
                                 </div>
                                 {% csrf_token %}
                                 <div class="gitment-editor-body">
-                                    <textarea class="text_area" rows="3" cols="80" name="comment" id="comment" tabindex="4" placeholder="Comment"></textarea>
+                                    <textarea class="text_area" rows="3" cols="80" name="comment" id="comment" tabindex="4" placeholder="添加评论..."></textarea>
                                 </div>
                             </div>
                             <div class="gitment-editor-footer">
-                                <br><input type="submit" name="submit" class="button" id="submit" style="background-color: #b6b7b9;width: 2cm;" value="Send"/>
+                                <br><input type="submit" name="submit" class="button" id="submit" style="background-color: #b6b7b9;width: 2cm;" value="发布"/>
                             </div>
                         </form>
                     </div>

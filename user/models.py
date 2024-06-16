@@ -53,9 +53,9 @@ class Movie(models.Model):
     d_rate = models.CharField(verbose_name="豆瓣评分", max_length=255)
     intro = models.TextField(verbose_name="描述")
     num = models.IntegerField(verbose_name="观看人数", default=0)
-    origin_image_link = models.URLField(verbose_name='豆瓣图片链接', max_length=255, null=True)
+    # origin_image_link = models.URLField(verbose_name='豆瓣图片链接', max_length=255, null=True)
     image_link = models.FileField(verbose_name="封面图片", max_length=255, upload_to='movie_cover')
-    imdb_link = models.URLField(null=True)
+    imdb_link = models.URLField(null=True,verbose_name='IMDB链接')
     douban_link = models.URLField(verbose_name='豆瓣链接')
     douban_id = models.CharField(verbose_name='豆瓣ID',max_length=128,null=True)
 
@@ -65,8 +65,8 @@ class Movie(models.Model):
         return movie_rate or 'Nothing'
 
     class Meta:
-        verbose_name = "名称"
-        verbose_name_plural = "名称"
+        verbose_name = "电影列表"
+        verbose_name_plural = "电影列表"
 
     def __str__(self):
         return self.name
@@ -101,7 +101,8 @@ class Comment(models.Model):
     class Meta:
         verbose_name = "评论"
         verbose_name_plural = verbose_name
-
+    def __str__(self):
+        return self.content
 
 class LikeComment(models.Model):
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, verbose_name='评论')
