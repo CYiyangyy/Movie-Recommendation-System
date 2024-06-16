@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block right-panel-content %}
-    <h2 align="center">User Login</h2>
+    <h2 align="center">用户登录</h2>
     <div class="col-md-4 col-md-offset-4">
         <form action="{% url 'login' %}" method='post' autocomplete="on">
             {% csrf_token %}
@@ -13,11 +13,11 @@
             {% endfor %}
             <div class="row">
                 <div class="col-md-5 ">
-                                <button type="reset" class="btn btn-block btn-danger">Clean</button>
+                                <button type="reset" class="btn btn-block btn-danger">清空</button>
 
                 </div>
                 <div class="col-md-5 col-md-offset-2">
-                               <button type="submit" class="btn btn-block btn-success">Login</button>
+                               <button type="submit" class="btn btn-block btn-success">登录</button>
 
                 </div>
             </div>

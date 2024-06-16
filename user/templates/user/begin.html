@@ -3,20 +3,20 @@
     <form action="{% url 'begin' %}" method="post" role='form'>
         {% csrf_token %}
         <div class="form-group">
-            <label for="exampleInputPassword1">User Name</label>
+            <label for="exampleInputPassword1">用户名</label>
             <input class="form-control" id="exampleInputPassword1" name="username">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Email</label>
+            <label for="exampleInputPassword1">邮箱</label>
 
             <input type="email" class="form-control" id="exampleInputPassword1" name="email">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">New Password</label>
+            <label for="exampleInputPassword1">密码</label>
             <input class="form-control" name="password" id="password1">
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword2">Confirm Password</label>
+            <label for="exampleInputPassword2">重复密码</label>
             <input class="form-control" id="password2">
         </div>
         <script>
@@ -31,6 +31,6 @@
                 }
             }
         </script>
-        <button type="submit" class="btn btn-primary" onclick=check()>Save and continue adding</button>
+        <button type="submit" class="btn btn-primary" onclick=check()>提交</button>
     </form>
 {% endblock %}

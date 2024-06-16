@@ -22,5 +22,5 @@ for model in models:
     except admin.sites.AlreadyRegistered:
         pass
 
-admin.AdminSite.site_header = 'Recommend System Back Office'
-admin.AdminSite.site_title = 'Recommend System Back Office'
+admin.AdminSite.site_header = '后台管理系统'
+admin.AdminSite.site_title = '后台管理系统'

@@ -13,18 +13,18 @@
                 <div class="artical-details-info-right">
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Tag:</strong> {% for tag in movie.tags.all %}
+                            <p><strong>标签:</strong> {% for tag in movie.tags.all %}
                                 <a href="">{{ tag.name }}</a>
                             {% endfor %}
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <p><strong>Realease Time:</strong> {{ movie.years }}</p>
+                            <p><strong>上映时间:</strong> {{ movie.years }}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Country:</strong> {{ movie.country }}</p>
+                            <p><strong>国家:</strong> {{ movie.country }}</p>
                         </div>
                         <div class="col-md-6">
                             <p><strong>导演:</strong> {{ movie.director }}</p>
@@ -96,7 +96,7 @@
                 </div>
                 <br><br><br>
             <div>
-                <h1 align="center">Movie Review Analysis</h1>
+                <h1 align="center">影评分析</h1>
                 <img align="center" class="img-responsive img-rounded" src="{{ MEDIA_URL }}/comment/{{ movie.douban_id }}.jpg" alt="Comment doesn't exist.">
             </div>
                 <div class="comment">
@@ -104,7 +104,7 @@
                         <form role="form" class="" action="{% url 'comment' movie.id %}" method="post">
                             <div class="gitment-editor-main">
                                 <div class="gitment-editor-header">
-                                    <h2>Post Comments：</h2>
+                                    <h2>发表评论：</h2>
                                     <br>
                                 </div>
                                 {% csrf_token %}
@@ -121,7 +121,7 @@
                     <div lang="en-US" class="gitment-container gitment-comments-container">
                         <p>----------------------------------------------------------------------------------------------------------</p>
                         <div class="gitment-editor-header">
-                            <h2>Comment：</h2>
+                            <h2>评论：</h2>
                             <br>
                         </div>
                         <div class="gitment-comments-list">
@@ -129,7 +129,7 @@
                                 <li class="gitment-comment">
                                     <a class="gitment-comment-avatar">
                                         <img class="gitment-comment-avatar-img img-circle" src='{{ request.user.email|gravatar:"50" }}'>
-                                        <span class="gitment-comment-name"> {{ i.user.username }}Posted in</span><span>{{ i.create_time }} </span>
+                                        <span class="gitment-comment-name"> {{ i.user.username }}发布时间：</span><span>{{ i.create_time }} </span>
                                     </a>
                                     <br>
                                     <div class="gitment-comment-body gitment-markdown"><p>{{ i.content }} </p></div>

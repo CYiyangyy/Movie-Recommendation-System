@@ -1,16 +1,16 @@
 {% extends "user/base_show.html" %}
 {% block th_name %}
-    <th>Movie Name</th>
-    <th>rating</th>
-    <th>Time Length</th>
-    <th>Edit</th>
+    <th>电影名称</th>
+    <th>电影评分</th>
+    <th>电影时长</th>
+    <th>编辑</th>
 {% endblock %}
 {% block modal %}
-    <a class="btn btn-primary" href="{% url 'delete_rate' i.id %}">Confirm</a>
+    <a class="btn btn-primary" href="{% url 'delete_rate' i.id %}">确认</a>
 {% endblock %}
 {% block th_value %}
     <td><a href="{% url 'movie' i.movie.id %}"> {{ i.movie.name }}</a></td>
     <td>{{ i.mark }}</td>
     <td>{{ i.create_time }}</td>
-    <td><a class="btn btn-danger" data-toggle="modal" data-target="#confirm-modal-{{ i.id }}">Delete</a></td>
+    <td><a class="btn btn-danger" data-toggle="modal" data-target="#confirm-modal-{{ i.id }}">删除</a></td>
 {% endblock %}
