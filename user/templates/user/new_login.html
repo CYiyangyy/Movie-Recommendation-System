@@ -2,7 +2,7 @@
 <html lang="zh" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Login</title>
+    <title>登录</title>
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="application/x-javascript"> addEventListener("load", function () {
@@ -28,22 +28,16 @@
 });
 </script>
 
-<h1>登录</h1>
+<div class="login-content">
+<h1 style="color: white;">登录</h1>
 <div class="login-form">
-
-    <div class="head-info">
-        <label class="lbl-1"> </label>
-        <label class="lbl-2"> </label>
-        <label class="lbl-3"> </label>
-    </div>
     <div class="clear"></div>
     <div class="avtar"><img src="{% static 'images/avtar.png' %}"/></div>
 
-    <form action="{% url 'login' %}" method='post' autocomplete="on">
+    <form action="{% url 'login' %}" method='post' autocomplete="off">
         {% csrf_token %}
         {% for field in form %}
             <div class="form-group">
-                {{ field.label_tag }}
                 {{ field.errors }}
                 {{ field }}
             </div>
@@ -58,15 +52,17 @@
 {##}
 {#            </div>#}
 {#        </div>#}
-        <span class=" text fa fa-mail-forward" style="color: white;font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No account?<a href="{% url 'register' %}">   Click here to register!</a></span>
-        <div class="signin"><input type="submit" value="Login"></div>
+        <span class=" text fa fa-mail-forward" style="color: #666;font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;没有账号?<a href="{% url 'register' %}">   点击注册!</a></span>
+        <div class="signin"><input type="submit" value="登录" autocomplete="off"></div>
     </form>
     {#    <form>#}
-    {#		<input type="text" class="text" value="用户名" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '用户名';}" >#}
-    {#		<div ><input type="password" value="密码" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '密码';}"></div>#}
+    {#		<input type="text" autocomplete="off" class="text" value="用户名" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '用户名';}" >#}
+    {#		<div ><input type="password" autocomplete="off" value="密码" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '密码';}"></div>#}
     {##}
     {#	</form>#}
 
 </div>
+</div>
+
 </body>
 </html>

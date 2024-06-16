@@ -2,7 +2,7 @@
 <html lang="zh" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Register</title>
+<title>注册</title>
     {% load static %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -22,32 +22,27 @@
 	});
 });
 </script>
-
-<h1>Register</h1>
-{% if error %}
-    <h2 align="center">{{ error }}</h2>
-{% endif %}
-<div class="login-form">
-
-	<div class="head-info">
-		<label class="lbl-1"> </label>
-		<label class="lbl-2"> </label>
-		<label class="lbl-3"> </label>
+<div class="login-content">
+	<h1 style="color: white;">注册</h1>
+	{% if error %}
+		<h2 align="center">{{ error }}</h2>
+	{% endif %}
+	<div class="login-form">
+		<div class="clear"> </div>
+		<!-- <div class="avtar"><img src="{% static 'images/avtar.png' %}" /></div> -->
+		<form class="form" action="{% url 'register' %}" method="post">
+			{% csrf_token %}
+			<input type="text" name="username" class="text" value="" autocomplete= "new-password">
+			<input type="re1" class="text" name="email" value="" autocomplete= "new-password">
+			<input type="password" class="text" name="password1" autocomplete= "new-password">
+			<input type="password" class="text" name="password2" autocomplete= "new-password">
+	{#        <button type="submit" class="btn btn-primary btn-block">注册</button>#}
+	
+	</br>
+		 <span class="text fa fa-mail-forward" style="color: #666;font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已有账号？<a href="{% url 'login' %}">   点击登录</a></span>
+		<div class="signin"><input type="submit" value="注册" ></div>
+		</form>
 	</div>
-	<div class="clear"> </div>
-	<div class="avtar"><img src="{% static 'images/avtar.png' %}" /></div>
-    <form class="form" action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="username" class="text" value="User Name">
-        <input type="text" class="text" name="email" value="Mailbox">
-        <input type="password" class="text" name="password1">
-        <input type="password" class="text" name="password2">
-{#        <button type="submit" class="btn btn-primary btn-block">注册</button>#}
-
-</br>
-     <span class=" text fa fa-mail-forward" style="color: white;font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Already have an account？<a href="{% url 'login' %}">   Click here to login</a></span>
-	<div class="signin"><input type="submit" value="Register" ></div>
-    </form>
 </div>
 </body>
 </html>

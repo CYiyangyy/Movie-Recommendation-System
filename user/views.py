@@ -71,11 +71,11 @@ def login(request):
                     return redirect(reverse("index"))
                 else:
                     return render(
-                        request, "user/new_login.html", {"form": form, "message": "Wrong Password!"}
+                        request, "user/new_login.html", {"form": form, "message": "密码错误!"}
                     )
             else:
                 return render(
-                    request, "user/new_login.html", {"form": form, "message": "Account does not exist!"}
+                    request, "user/new_login.html", {"form": form, "message": "账号不存在!"}
                 )
     else:
         form = Login()

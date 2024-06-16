@@ -29,7 +29,7 @@ DEBUG = True
 
 ENV_PROFILE = os.getenv("ENV")
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'movie4.colaplusice.com','movie4.colaplusice.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
 # Application definition
 
